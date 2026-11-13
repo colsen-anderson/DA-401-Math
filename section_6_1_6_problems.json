@@ -1,0 +1,162 @@
+[
+    {
+        "book": "OpenStax Algebra 1",
+        "unit": "6",
+        "lesson": "6.1",
+        "block_code": "6.1.6",
+        "section_title": "Practice",
+        "problem_number": "1",
+        "problem_context": "For questions 1 - 5, simplify each expression completely.",
+        "problem_text": "14ab^{2} - 8ab^{2}",
+        "solution_text": "6ab^{2}",
+        "mapped_standard": "A1.PAFR.1.4",
+        "extraction_metadata": {
+            "source_url": "https://openstax.org/books/algebra-1/pages/6-1-6-practice",
+            "indicator_alignment": "Add, subtract, and multiply polynomials with initial terms up to a degree of 2."
+        }
+    },
+    {
+        "book": "OpenStax Algebra 1",
+        "unit": "6",
+        "lesson": "6.1",
+        "block_code": "6.1.6",
+        "section_title": "Practice",
+        "problem_number": "2",
+        "problem_context": "For questions 1 - 5, simplify each expression completely.",
+        "problem_text": "(8k^{2} - 3k + 14) + (8k + 17)",
+        "solution_text": "8k^{2} + 5k + 31",
+        "mapped_standard": "A1.PAFR.1.4",
+        "extraction_metadata": {
+            "source_url": "https://openstax.org/books/algebra-1/pages/6-1-6-practice",
+            "indicator_alignment": "Add, subtract, and multiply polynomials with initial terms up to a degree of 2."
+        }
+    },
+    {
+        "book": "OpenStax Algebra 1",
+        "unit": "6",
+        "lesson": "6.1",
+        "block_code": "6.1.6",
+        "section_title": "Practice",
+        "problem_number": "3",
+        "problem_context": "For questions 1 - 5, simplify each expression completely.",
+        "problem_text": "(7b^{2} - 2b - 12) - (4b^{2} + 9b - 7)",
+        "solution_text": "3b^{2} - 11b - 5",
+        "mapped_standard": "A1.PAFR.1.4",
+        "extraction_metadata": {
+            "source_url": "https://openstax.org/books/algebra-1/pages/6-1-6-practice",
+            "indicator_alignment": "Add, subtract, and multiply polynomials with initial terms up to a degree of 2."
+        }
+    },
+    {
+        "book": "OpenStax Algebra 1",
+        "unit": "6",
+        "lesson": "6.1",
+        "block_code": "6.1.6",
+        "section_title": "Practice",
+        "problem_number": "4",
+        "problem_context": "For questions 1 - 5, simplify each expression completely.",
+        "problem_text": "(7mn^{3} - 2m^{2}n - 12mn) - (3mn^{3} - 4mn)",
+        "solution_text": "4mn^{3} - 2m^{2}n - 8mn",
+        "mapped_standard": "A1.PAFR.1.4",
+        "extraction_metadata": {
+            "source_url": "https://openstax.org/books/algebra-1/pages/6-1-6-practice",
+            "indicator_alignment": "Add, subtract, and multiply polynomials with initial terms up to a degree of 2."
+        }
+    },
+    {
+        "book": "OpenStax Algebra 1",
+        "unit": "6",
+        "lesson": "6.1",
+        "block_code": "6.1.6",
+        "section_title": "Practice",
+        "problem_number": "5",
+        "problem_context": "For questions 1 - 5, simplify each expression completely.",
+        "problem_text": "(r^{3} - r^{2}s) - 2(rs^{2} + s^{3}) + (r^{2}s + 2rs^{2})",
+        "solution_text": "r^{3} - 2s^{3}",
+        "mapped_standard": "A1.PAFR.1.4",
+        "extraction_metadata": {
+            "source_url": "https://openstax.org/books/algebra-1/pages/6-1-6-practice",
+            "indicator_alignment": "Add, subtract, and multiply polynomials with initial terms up to a degree of 2."
+        }
+    },
+    {
+        "book": "OpenStax Algebra 1",
+        "unit": "6",
+        "lesson": "6.1",
+        "block_code": "6.1.6",
+        "section_title": "Practice",
+        "problem_number": "6",
+        "problem_context": "Use the following polynomial functions to answer questions 6 \u2013 10.\n\u2022 p(x) = 12x^{2} + 3x - 4\n\u2022 d(x) = 3x^{2} - 11x - 6",
+        "problem_text": "p(4)",
+        "solution_text": "200",
+        "mapped_standard": "A1.PAFR.3.1",
+        "extraction_metadata": {
+            "source_url": "https://openstax.org/books/algebra-1/pages/6-1-6-practice",
+            "indicator_alignment": "Recognize that f(x) denotes the output of function f that corresponds to the input x, and this corresponds to the set of all the ordered pairs (x, y) that satisfy the equation y = f(x) both tabularly and graphically."
+        }
+    },
+    {
+        "book": "OpenStax Algebra 1",
+        "unit": "6",
+        "lesson": "6.1",
+        "block_code": "6.1.6",
+        "section_title": "Practice",
+        "problem_number": "7",
+        "problem_context": "Use the following polynomial functions to answer questions 6 \u2013 10.\n\u2022 p(x) = 12x^{2} + 3x - 4\n\u2022 d(x) = 3x^{2} - 11x - 6",
+        "problem_text": "d(-3)",
+        "solution_text": "54",
+        "mapped_standard": "A1.PAFR.3.1",
+        "extraction_metadata": {
+            "source_url": "https://openstax.org/books/algebra-1/pages/6-1-6-practice",
+            "indicator_alignment": "Recognize that f(x) denotes the output of function f that corresponds to the input x, and this corresponds to the set of all the ordered pairs (x, y) that satisfy the equation y = f(x) both tabularly and graphically."
+        }
+    },
+    {
+        "book": "OpenStax Algebra 1",
+        "unit": "6",
+        "lesson": "6.1",
+        "block_code": "6.1.6",
+        "section_title": "Practice",
+        "problem_number": "8",
+        "problem_context": "Use the following polynomial functions to answer questions 6 \u2013 10.\n\u2022 p(x) = 12x^{2} + 3x - 4\n\u2022 d(x) = 3x^{2} - 11x - 6",
+        "problem_text": "p(x) + d(x)",
+        "solution_text": "15x^{2} - 8x - 10",
+        "mapped_standard": "A1.PAFR.1.4",
+        "extraction_metadata": {
+            "source_url": "https://openstax.org/books/algebra-1/pages/6-1-6-practice",
+            "indicator_alignment": "Add, subtract, and multiply polynomials with initial terms up to a degree of 2."
+        }
+    },
+    {
+        "book": "OpenStax Algebra 1",
+        "unit": "6",
+        "lesson": "6.1",
+        "block_code": "6.1.6",
+        "section_title": "Practice",
+        "problem_number": "9",
+        "problem_context": "Use the following polynomial functions to answer questions 6 \u2013 10.\n\u2022 p(x) = 12x^{2} + 3x - 4\n\u2022 d(x) = 3x^{2} - 11x - 6",
+        "problem_text": "p(x) - d(x)",
+        "solution_text": "9x^{2} + 14x + 2",
+        "mapped_standard": "A1.PAFR.1.4",
+        "extraction_metadata": {
+            "source_url": "https://openstax.org/books/algebra-1/pages/6-1-6-practice",
+            "indicator_alignment": "Add, subtract, and multiply polynomials with initial terms up to a degree of 2."
+        }
+    },
+    {
+        "book": "OpenStax Algebra 1",
+        "unit": "6",
+        "lesson": "6.1",
+        "block_code": "6.1.6",
+        "section_title": "Practice",
+        "problem_number": "10",
+        "problem_context": "Use the following polynomial functions to answer questions 6 \u2013 10.\n\u2022 p(x) = 12x^{2} + 3x - 4\n\u2022 d(x) = 3x^{2} - 11x - 6",
+        "problem_text": "p(5) - d(-6)",
+        "solution_text": "143",
+        "mapped_standard": "A1.PAFR.1.4",
+        "extraction_metadata": {
+            "source_url": "https://openstax.org/books/algebra-1/pages/6-1-6-practice",
+            "indicator_alignment": "Add, subtract, and multiply polynomials with initial terms up to a degree of 2."
+        }
+    }
+]
