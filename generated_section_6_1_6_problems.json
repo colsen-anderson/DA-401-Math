@@ -1,0 +1,162 @@
+[
+    {
+        "book": "SC Standards-Aligned Practice",
+        "unit": "6",
+        "lesson": "6.1",
+        "block_code": "6.1.6-generated",
+        "section_title": "Practice",
+        "problem_number": "1",
+        "problem_context": "For questions 1 - 5, simplify each expression completely.",
+        "problem_text": "19xy^{2} - 11xy^{2}",
+        "solution_text": "8xy^{2}",
+        "mapped_standard": "A1.PAFR.1.4",
+        "extraction_metadata": {
+            "source_url": "Generated from SC A1.PAFR.1.4",
+            "indicator_alignment": "Add, subtract, and multiply polynomials with initial terms up to a degree of 2."
+        }
+    },
+    {
+        "book": "SC Standards-Aligned Practice",
+        "unit": "6",
+        "lesson": "6.1",
+        "block_code": "6.1.6-generated",
+        "section_title": "Practice",
+        "problem_number": "2",
+        "problem_context": "For questions 1 - 5, simplify each expression completely.",
+        "problem_text": "(6m^{2} - 5m + 11) + (9m + 15)",
+        "solution_text": "6m^{2} + 4m + 26",
+        "mapped_standard": "A1.PAFR.1.4",
+        "extraction_metadata": {
+            "source_url": "Generated from SC A1.PAFR.1.4",
+            "indicator_alignment": "Add, subtract, and multiply polynomials with initial terms up to a degree of 2."
+        }
+    },
+    {
+        "book": "SC Standards-Aligned Practice",
+        "unit": "6",
+        "lesson": "6.1",
+        "block_code": "6.1.6-generated",
+        "section_title": "Practice",
+        "problem_number": "3",
+        "problem_context": "For questions 1 - 5, simplify each expression completely.",
+        "problem_text": "(9a^{2} - 4a - 15) - (5a^{2} + 7a - 8)",
+        "solution_text": "4a^{2} - 11a - 7",
+        "mapped_standard": "A1.PAFR.1.4",
+        "extraction_metadata": {
+            "source_url": "Generated from SC A1.PAFR.1.4",
+            "indicator_alignment": "Add, subtract, and multiply polynomials with initial terms up to a degree of 2."
+        }
+    },
+    {
+        "book": "SC Standards-Aligned Practice",
+        "unit": "6",
+        "lesson": "6.1",
+        "block_code": "6.1.6-generated",
+        "section_title": "Practice",
+        "problem_number": "4",
+        "problem_context": "For questions 1 - 5, simplify each expression completely.",
+        "problem_text": "(8xy^{3} - 3x^{2}y - 15xy) - (4xy^{3} - 7xy)",
+        "solution_text": "4xy^{3} - 3x^{2}y - 8xy",
+        "mapped_standard": "A1.PAFR.1.4",
+        "extraction_metadata": {
+            "source_url": "Generated from SC A1.PAFR.1.4",
+            "indicator_alignment": "Add, subtract, and multiply polynomials with initial terms up to a degree of 2."
+        }
+    },
+    {
+        "book": "SC Standards-Aligned Practice",
+        "unit": "6",
+        "lesson": "6.1",
+        "block_code": "6.1.6-generated",
+        "section_title": "Practice",
+        "problem_number": "5",
+        "problem_context": "For questions 1 - 5, simplify each expression completely.",
+        "problem_text": "(p^{3} - p^{2}q) - 3(pq^{2} + q^{3}) + (p^{2}q + 3pq^{2})",
+        "solution_text": "p^{3} - 3q^{3}",
+        "mapped_standard": "A1.PAFR.1.4",
+        "extraction_metadata": {
+            "source_url": "Generated from SC A1.PAFR.1.4",
+            "indicator_alignment": "Add, subtract, and multiply polynomials with initial terms up to a degree of 2."
+        }
+    },
+    {
+        "book": "SC Standards-Aligned Practice",
+        "unit": "6",
+        "lesson": "6.1",
+        "block_code": "6.1.6-generated",
+        "section_title": "Practice",
+        "problem_number": "6",
+        "problem_context": "Use the following polynomial functions to answer questions 6 – 10.\n• f(x) = 6x^{2} + 4x - 5\n• g(x) = 2x^{2} - 9x + 3",
+        "problem_text": "f(3)",
+        "solution_text": "61",
+        "mapped_standard": "A1.PAFR.3.1",
+        "extraction_metadata": {
+            "source_url": "Generated from SC A1.PAFR.3.1",
+            "indicator_alignment": "Recognize that f(x) denotes the output of function f that corresponds to the input x, and this corresponds to the set of all the ordered pairs (x, y) that satisfy the equation y = f(x) both tabularly and graphically."
+        }
+    },
+    {
+        "book": "SC Standards-Aligned Practice",
+        "unit": "6",
+        "lesson": "6.1",
+        "block_code": "6.1.6-generated",
+        "section_title": "Practice",
+        "problem_number": "7",
+        "problem_context": "Use the following polynomial functions to answer questions 6 – 10.\n• f(x) = 6x^{2} + 4x - 5\n• g(x) = 2x^{2} - 9x + 3",
+        "problem_text": "g(-2)",
+        "solution_text": "29",
+        "mapped_standard": "A1.PAFR.3.1",
+        "extraction_metadata": {
+            "source_url": "Generated from SC A1.PAFR.3.1",
+            "indicator_alignment": "Recognize that f(x) denotes the output of function f that corresponds to the input x, and this corresponds to the set of all the ordered pairs (x, y) that satisfy the equation y = f(x) both tabularly and graphically."
+        }
+    },
+    {
+        "book": "SC Standards-Aligned Practice",
+        "unit": "6",
+        "lesson": "6.1",
+        "block_code": "6.1.6-generated",
+        "section_title": "Practice",
+        "problem_number": "8",
+        "problem_context": "Use the following polynomial functions to answer questions 6 – 10.\n• f(x) = 6x^{2} + 4x - 5\n• g(x) = 2x^{2} - 9x + 3",
+        "problem_text": "f(x) + g(x)",
+        "solution_text": "8x^{2} - 5x - 2",
+        "mapped_standard": "A1.PAFR.1.4",
+        "extraction_metadata": {
+            "source_url": "Generated from SC A1.PAFR.1.4",
+            "indicator_alignment": "Add, subtract, and multiply polynomials with initial terms up to a degree of 2."
+        }
+    },
+    {
+        "book": "SC Standards-Aligned Practice",
+        "unit": "6",
+        "lesson": "6.1",
+        "block_code": "6.1.6-generated",
+        "section_title": "Practice",
+        "problem_number": "9",
+        "problem_context": "Use the following polynomial functions to answer questions 6 – 10.\n• f(x) = 6x^{2} + 4x - 5\n• g(x) = 2x^{2} - 9x + 3",
+        "problem_text": "f(x) - g(x)",
+        "solution_text": "4x^{2} + 13x - 8",
+        "mapped_standard": "A1.PAFR.1.4",
+        "extraction_metadata": {
+            "source_url": "Generated from SC A1.PAFR.1.4",
+            "indicator_alignment": "Add, subtract, and multiply polynomials with initial terms up to a degree of 2."
+        }
+    },
+    {
+        "book": "SC Standards-Aligned Practice",
+        "unit": "6",
+        "lesson": "6.1",
+        "block_code": "6.1.6-generated",
+        "section_title": "Practice",
+        "problem_number": "10",
+        "problem_context": "Use the following polynomial functions to answer questions 6 – 10.\n• f(x) = 6x^{2} + 4x - 5\n• g(x) = 2x^{2} - 9x + 3",
+        "problem_text": "f(4) - g(-3)",
+        "solution_text": "59",
+        "mapped_standard": "A1.PAFR.1.4",
+        "extraction_metadata": {
+            "source_url": "Generated from SC A1.PAFR.1.4",
+            "indicator_alignment": "Add, subtract, and multiply polynomials with initial terms up to a degree of 2."
+        }
+    }
+]
