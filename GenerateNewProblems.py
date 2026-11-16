@@ -26,13 +26,13 @@ client = genai.Client(api_key=API_KEY)
 # ============================================
 MODEL_NAME = "gemini-3.6-flash"
 MAX_RETRIES = 5
-TEMPERATURE = 0.3
+TEMPERATURE = 0.2
 
 
 # ============================================
 # HELPER FUNCTIONS
 # ============================================
-def load_json(filepath: str) -> list:
+def load_json(filepath: str):
     """Load JSON file safely."""
     path = Path(filepath)
     if not path.exists():
@@ -53,7 +53,6 @@ def save_json(data: list, filepath: str) -> None:
 def clean_json_response(raw_text: str) -> list:
     """Safely extract and parse a JSON array from raw model text."""
     raw_text = raw_text.strip()
-    # Strip markdown code blocks if present
     if raw_text.startswith("```json"):
         raw_text = raw_text[7:]
     elif raw_text.startswith("```"):
@@ -62,7 +61,6 @@ def clean_json_response(raw_text: str) -> list:
         raw_text = raw_text[:-3]
     raw_text = raw_text.strip()
 
-    # Locate array bounds
     start = raw_text.find("[")
     end = raw_text.rfind("]")
     if start != -1 and end != -1 and end > start:
@@ -70,7 +68,6 @@ def clean_json_response(raw_text: str) -> list:
         try:
             return json.loads(candidate)
         except json.JSONDecodeError:
-            # Clean trailing commas
             candidate = re.sub(r",\s*([}\]])", r"\1", candidate)
             return json.loads(candidate)
 
@@ -82,49 +79,59 @@ def clean_json_response(raw_text: str) -> list:
 # ============================================
 def generate_similar_practice_problems(
         input_problems: list,
+        standards_data: list,
         model_name: str = MODEL_NAME,
         max_retries: int = MAX_RETRIES
 ) -> list:
     """
-    Takes a list of textbook problems and generates a 1-to-1 parallel list
-    of new problems matching the SC Standards-Aligned Practice schema.
+    Takes textbook problems + official standards list, generates 1-to-1 parallel
+    problems, and maps each problem to the correct SC standard and indicator.
     """
     total_problems = len(input_problems)
     input_formatted = json.dumps(input_problems, indent=2, ensure_ascii=False)
+    standards_formatted = json.dumps(standards_data, indent=2, ensure_ascii=False)
 
     prompt = f"""You are an expert mathematics curriculum specialist and assessment designer for South Carolina High School Algebra 1.
 
 ### MISSION:
-You are provided with a JSON list containing exactly {total_problems} original algebra practice problems.
-Generate an EXACT 1-to-1 parallel JSON list containing {total_problems} BRAND NEW, original practice problems.
+You are provided with:
+1. An official JSON list of South Carolina Algebra 1 standards and indicators.
+2. A JSON list containing exactly {total_problems} original algebra practice problems.
 
-### STRICT GENERATION RULES:
-1. **EXACT 1-TO-1 COUNT**: You must produce exactly {total_problems} problems matching the original problem numbers (1 through {total_problems}).
-2. **PARALLEL STRUCTURE & DIFFICULTY**:
-   - Each new problem must test the exact same mathematical skill, concept, and structure as its source problem, but with different coefficients, variables, constants, or algebraic forms.
-   - If a group of problems shares a context (e.g., questions 6–10 share two functions $f(x)$ and $g(x)$), create a new consistent set of shared functions in `problem_context` and evaluate the new problems against those new functions.
-3. **ACCURATE SOLUTIONS**: Solve each generated problem step-by-step internally to ensure `solution_text` is mathematically correct and in simplest form.
-4. **LATEX NOTATION**: Format all mathematical expressions using valid LaTeX syntax (e.g., `5m^{{2}} - 7m + 22`, `\\frac{{1}}{{2}}`, etc.).
-5. **METADATA & SCHEMA CONVENTIONS**:
-   - `"book"`: Must be set to `"SC Standards-Aligned Practice"`
-   - `"unit"`: Keep identical to source problem.
-   - `"lesson"`: Keep identical to source problem.
-   - `"block_code"`: Append `"-generated"` (e.g., `"6.1.6"` -> `"6.1.6-generated"`).
-   - `"section_title"`: Keep identical to source problem (e.g., `"Practice"`).
-   - `"problem_number"`: Keep identical to source problem (e.g., `"1"`, `"2"`, etc.).
-   - `"problem_context"`: Parallel to source instructions/context.
-   - `"problem_text"`: The new problem statement.
-   - `"solution_text"`: The exact, simplified answer to the new problem.
-   - `"mapped_standard"`: Keep the exact standard code from the source (e.g., `"A1.PAFR.1.4"`).
-   - `"extraction_metadata"`:
-       - `"source_url"`: Set to `"Generated from SC <mapped_standard>"` (e.g., `"Generated from SC A1.PAFR.1.4"`).
-       - `"indicator_alignment"`: Keep the exact indicator alignment text from the source item.
+Generate an EXACT 1-to-1 parallel JSON list containing {total_problems} BRAND NEW, original practice problems mapped accurately against the provided SC standards.
+
+### OFFICIAL SC STANDARDS LIST:
+{standards_formatted}
 
 ### SOURCE PROBLEMS TO REPLICATE (JSON):
 {input_formatted}
 
-### OUTPUT REQUIREMENTS:
-Return ONLY a valid JSON list of {total_problems} dictionaries adhering strictly to the required schema. No conversational prose or explanations.
+### STRICT GENERATION & MAPPING RULES:
+1. **EXACT 1-TO-1 COUNT**: Produce exactly {total_problems} problems numbered 1 through {total_problems}.
+2. **PARALLEL DIFFICULTY & CONTEXT**:
+   - Each new problem must test the same mathematical concept with new coefficients/variables.
+   - For grouped problems sharing context (e.g., functions $f(x)$ and $g(x)$ for questions 6–10), define fresh functions in `problem_context` and evaluate the questions against those functions.
+3. **ACCURATE SOLUTIONS & LATEX**:
+   - Compute exact simplified answers for `solution_text`.
+   - Format all math expressions with standard LaTeX notation (e.g., `8x^{{2}} + 5x - 9`).
+4. **STANDARDS ALIGNMENT**:
+   - Map each generated problem to its most precise indicator from the provided standards JSON.
+   - Set `"mapped_standard"` to the exact indicator code (e.g., `"A1.PAFR.1.4"` or `"A1.PAFR.3.1"`).
+   - Set `"extraction_metadata"."indicator_alignment"` to the exact `"indicator_description"` from the standards JSON matching that code.
+   - Set `"extraction_metadata"."source_url"` to `"Generated from SC <mapped_standard>"` (e.g., `"Generated from SC A1.PAFR.1.4"`).
+5. **SCHEMA FORMAT**:
+   - `"book"`: `"SC Standards-Aligned Practice"`
+   - `"unit"`: Keep from source item
+   - `"lesson"`: Keep from source item
+   - `"block_code"`: Append `"-generated"` (e.g., `"6.1.6-generated"`)
+   - `"section_title"`: Keep from source item
+   - `"problem_number"`: Keep from source item
+   - `"problem_context"`: Parallel context/instructions
+   - `"problem_text"`: New problem text
+   - `"solution_text"`: Exact answer
+
+### OUTPUT FORMAT:
+Return ONLY a valid JSON list of {total_problems} dictionaries adhering to the schema.
 """
 
     config = types.GenerateContentConfig(
@@ -146,18 +153,18 @@ Return ONLY a valid JSON list of {total_problems} dictionaries adhering strictly
             parsed_data = clean_json_response(raw_text)
 
             if isinstance(parsed_data, list) and len(parsed_data) == total_problems:
-                print(f"✓ Successfully generated and verified {len(parsed_data)} parallel problems.")
+                print(f"✓ Successfully generated and validated {len(parsed_data)} parallel problems.")
                 return parsed_data
             elif isinstance(parsed_data, list):
-                print(f"⚠️ Warning: Model returned {len(parsed_data)} items instead of {total_problems}. Retrying...")
+                print(f"⚠️ Model returned {len(parsed_data)} items instead of {total_problems}. Retrying...")
             else:
-                print(f"⚠️ Warning: Response was not a JSON list. Retrying...")
+                print(f"⚠️ Response was not a JSON list. Retrying...")
 
         except errors.ClientError as e:
             err_str = str(e)
             if "503" in err_str or "UNAVAILABLE" in err_str:
                 wait_time = 2 ** attempt
-                print(f"⚠️ Service temporarily unavailable (503). Retrying in {wait_time}s...")
+                print(f"⚠️ Service 503. Retrying in {wait_time}s...")
                 time.sleep(wait_time)
             else:
                 raise e
@@ -173,26 +180,34 @@ Return ONLY a valid JSON list of {total_problems} dictionaries adhering strictly
 # MAIN EXECUTION
 # ============================================
 def main():
-    # File paths (adjust as needed)
-    input_file = "section_6_1_6_problems.json"
-    output_file = "generated_section_6_1_6_problems.json"
+    # File paths
+    standards_file = "algebra_1_standards_most.json"
+    input_file = "6.4.6 Practice_problems.json"
+    output_file = "generated_section_6_4_6_problems.json"
 
     print("=" * 60)
-    print("🎯 STARTING 1-TO-1 SIMILAR PROBLEM GENERATION")
+    print("🎯 STARTING 1-TO-1 SIMILAR PROBLEM GENERATION WITH STANDARDS")
     print("=" * 60)
 
-    # 1. Load input problems
+    # 1. Load Standards and Input Problems
+    try:
+        standards_data = load_json(standards_file)
+        print(f"📋 Loaded SC standards from '{standards_file}'")
+    except FileNotFoundError:
+        print(f"❌ Error: Could not find '{standards_file}'. Please place it in the same directory.")
+        return
+
     try:
         source_problems = load_json(input_file)
         print(f"📂 Loaded {len(source_problems)} source problems from '{input_file}'")
     except FileNotFoundError:
-        print(f"❌ Error: Could not find '{input_file}'.")
-        print("   Please make sure the source JSON is located in the working directory.")
+        print(f"❌ Error: Could not find '{input_file}'. Please place it in the same directory.")
         return
 
-    # 2. Generate new problems
+    # 2. Generate new problems mapped to standards
     generated_problems = generate_similar_practice_problems(
         input_problems=source_problems,
+        standards_data=standards_data,
         model_name=MODEL_NAME
     )
 
